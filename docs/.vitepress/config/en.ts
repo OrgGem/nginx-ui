@@ -52,6 +52,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             { text: 'Auth', link: '/guide/config-auth' },
             { text: 'Backup', link: '/guide/config-backup' },
             { text: 'Casdoor', link: '/guide/config-casdoor' },
+            { text: 'OIDC', link: '/guide/config-oidc' },
             { text: 'Cert', link: '/guide/config-cert' },
             { text: 'Cluster', link: '/guide/config-cluster' },
             { text: 'Crypto', link: '/guide/config-crypto' },
