@@ -23,6 +23,8 @@ The client secret generated for the same client.
 - Type: `string`
 
 The callback URL configured in your OIDC provider. It must exactly match the redirect URI registered for the client.
+Typically this is your Nginx UI login page, for example:
+`https://nginx-ui.example.com/#/login`
 
 ## Scopes
 - Type: `string`
@@ -34,6 +36,13 @@ Space-separated scopes requested during authorization. Leave empty to use the de
 - Type: `string`
 
 Optional claim key to extract the username. If unset, Nginx UI falls back to `email`, then `name`, then `sub`.
+
+## Troubleshooting checklist
+- Make sure a local Nginx UI user already exists with a username that matches the chosen identifier claim (or `email`/`name`/`sub` fallback).
+- The `Endpoint` must be the issuer URL (OIDC discovery document base), not the authorization endpoint.
+- `RedirectUri` must exactly match the value registered in your provider (including `#/login` if you use the default UI route).
+- Keep the `Scopes` containing at least `openid`; include `profile`/`email` if you rely on those claims.
+- Clear cookies and retry if you see state mismatch errors.
 
 ## Example
 
